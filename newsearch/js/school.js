@@ -8,23 +8,23 @@
 		});
 
 		$("#typeSelect").change(function(){
-			
+
 			if (allSchoolData.length === 0) {
 				return;
 			}
-			var key = $(this).val(); 
+			var key = $(this).val();
 			if(key == -1){
 				return;
 			}
-			var result = []; 
-			allSchoolData.forEach(function (value, index) { 
-				if (value.subject === key) { 
-					result.push(value) 
+			var result = [];
+			allSchoolData.forEach(function (value, index) {
+				if (value.subject === key) {
+					result.push(value)
 				}
 			});
 			tmpData(result);
 		});
-		
+
 	});
 
 	function GetQueryString(name) {
@@ -51,7 +51,7 @@
 
 			str = str + "<div class='content'>"
 			str = str + "<div class='title'>"
-			str = str + "<div class='' style= 'width:30%;'>" + item.shcoolname + "</div>"
+			str = str + "<div style= 'width:30%;'>" + item.shcoolname + "</div>"
 			str = str + "<div style= 'width:20%;'>" + item.subject + "</div>"
 			str = str + "<div style= 'width:20%;'>" + item.batch + "</div>"
 			str = str + "<div style= 'width:27%; display:flex;flex-direction: row;'>"
@@ -62,7 +62,7 @@
 
 			str = str + "<div class='school-item'>"
 			str = str + "<div class='item-left'>专业名称：</div>"
-			str = str + "<div class='item-right'>" + item.subjectName + "</span></div>"
+			str = str + "<div class='item-right'><a href='../score/index.html?schoolName="+item.shcoolname+"&subjectName="+item.subjectName+"'>"+item.subjectName + "(点击查看分数线)</a></span></div>"
 			str = str + '</div>'
 
 			str = str + "<div class='school-item'>"
@@ -91,6 +91,6 @@
 			str = str + '</div>'
 			str = str + '</div>'
 		})
-
+    console.log(str);
 		$(".container").html(str);
 	}
